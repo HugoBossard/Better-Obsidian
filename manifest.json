@@ -1,0 +1,9 @@
+{
+	"id": "better-obsidian",
+	"name": "Better Obsidian",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "My first projet using Obsidian API",
+	"author": "Hugo Bossard",
+	"authorUrl": "https://github.com/HugoBossard"
+}
