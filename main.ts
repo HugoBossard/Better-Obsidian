@@ -1,4 +1,4 @@
-import { Menu, Notice, Plugin } from 'obsidian';
+import { Editor, Menu, Notice, Plugin } from 'obsidian';
 
 interface MyPluginSettings {
 	mySettings: string;
@@ -28,6 +28,24 @@ export default class BetterObsidian extends Plugin {
 
 			menu.showAtMouseEvent(event);
 		});
+
+		this.addCommand({
+			id: 'insert-list',
+			name: 'Insert current selected text by list',
+			editorCallback: (editor: Editor) => {
+				this.insertList(editor);
+			}
+		});
+	}
+
+	insertList(editor: Editor) {
+		const selection = editor.getSelection();
+
+		editor.replaceSelection(
+			selection.split('\n').map((line) =>
+				"- " + line + "\n"
+			).join('')
+		);
 	}
 
 	onunload() {}
